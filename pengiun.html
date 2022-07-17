@@ -5,35 +5,227 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        :root {
+            --penguin-size: 400px;
+            --penguin-skin: rgb(255, 0, 0);
+            --penguin-belly: #fff;
+            --penguin-beak: rgb(255, 149, 0);
+        }
+        @media screen and (min-width: 768px){
+            :root{
+                --penguin-size: 400px;
+                --penguin-skin: rgb(48, 48, 48);
+            }
+        }
+
         body{
-            background-color: white;
-        }
-        .pengiun{
-            overflow: hidden;
-            position: absolute;
-            box-sizing: border-box;
+            background: #a7fff0;
             min-height: 100vh;
-            width: 100%;
-            padding-right: 8%;
-            padding-left: 8%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
-        .text{
-            
+        .penguin{
+            position: relative;
+            margin: auto;
+            display: block;
+            width: var(--penguin-size,300px);
+            height: var(--penguin-size,300px);
+
         }
-
-
-
-
-        @media only screen and (max-width: 480px){
-            body{
-                background-color: aqua;
+        .penguin * {
+            position: absolute;
+        }
+        .right-cheek{
+            top: 15%;
+            left: 35%;
+            background: var(--penguin-belly,#fff);
+            width: 60%;
+            height: 70%;
+            border-radius: 70% 70% 60% 60%;
+        }
+        .left-cheek{
+            top: 15%;
+            left: 5%;
+            background: var(--penguin-belly,#fff);
+            width: 60%;
+            height: 70%;
+            border-radius: 70% 70% 60% 60%;
+        }
+        .belly{
+            top: 60%;
+            left: 2.5%;
+            background: var(--penguin-belly,#fff);
+            width: 95%;
+            height: 100%;
+            border-radius: 120% 120% 100% 100%;
+        }
+        .penguin-top{
+            top: 10%;
+            left: 25%;
+            background: var(--penguin-skin, black);
+            width: 50%;
+            height: 50%;
+            border-radius: 70% 70% 60% 60%;
+        }
+        .penguin-bottom{
+            top: 49%;
+            left: 23.5%;
+            background:var(--penguin-skin, black);
+            width:53%;
+            height: 45%;
+            border-radius: 90% 90% 100% 100%;
+        }
+        .right-hand{
+            top: 5%;
+            left: 25%;
+            background: var(--penguin-skin,black);
+            width: 30%;
+            height: 60%;
+            border-radius: 30% 30% 120% 120%;
+            transform: rotate(130deg);
+            z-index: -1;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-name: wave;
+            animation-timing-function: linear;
+            transform-origin: 0 0;
+        }
+        .left-hand{
+            top: 0%;
+            left: 75%;
+            background: var(--penguin-skin,black);
+            width: 30%;
+            height: 60%;
+            border-radius: 30% 30% 30% 120%;
+            transform: rotate(-45deg);
+            z-index: -1;
+        }
+        .right-feet{
+            top: 85%;
+            left: 60%;
+            background: var(--penguin-beak);
+            width: 15%;
+            height: 30%;
+            border-radius: 50% 50% 50% 50%;
+            transform: rotate(-80deg);
+            z-index: -29;
+        }
+        .left-feet{
+            top: 85%;
+            left: 25%;
+            background: var(--penguin-beak);
+            width: 15%;
+            height: 30%;
+            border-radius: 50% 50% 50% 50%;
+            transform: rotate(-80deg);
+            z-index: -22;
+        }
+        .right-eye{
+            top: 40%;
+            left: 25%;
+            background: black;
+            width: 15%;
+            height: 17%;
+            border-radius: 50%;
+        }
+        .left-eye{
+            top: 40%;
+            left: 60%;
+            background: black;
+            width: 15%;
+            height: 17%;
+            border-radius: 50%;
+        }
+        .sparkle{
+            top: 25%;
+            left: 25%;
+            background: white;
+            width: 35%;
+            height: 39%;
+            border-radius: 50%;
+        }
+        .blush-right{
+            top: 60%;
+            left: 15%;
+            background: pink;
+            width: 15%;
+            height: 10%;
+            border-radius: 50%;
+        }
+        .blush-left{
+            left: 70%;
+            top: 60%;
+            background: pink;
+            width: 15%;
+            height: 10%;
+            border-radius: 50%;
+            transform: rotate(-45deg);
+        }
+        .beak-top{
+            top: 60%;
+            left: 40%;
+            background: var(--penguin-beak);
+            width: 20%;
+            height: 10%;
+            border-radius: 50%;
+        }
+        .beak-bottom{
+            top: 55%;
+            left: 42%;
+            background: var(--penguin-beak);
+            width: 16%;
+            height: 10%;
+            border-radius: 50%;
+        }
+        @keyframes wave {
+            10%{
+                transform: rotate(110deg);
+            }
+            20%{
+                transform: rotate(130deg);
+            }
+            30%{
+                transform: rotate(110deg);
+            }
+            40%{
+                transform: rotate(130deg);
             }
         }
     </style>
 </head>
 <body>
-    <div class="pengiun">
-        
+    <div class="penguin">
+        <div class="penguin-bottom">
+            <div class="right-hand"></div>
+            <div class="left-hand"></div>
+            <div class="right-feet"></div>
+            <div class="left-feet"></div>
+        </div>
+        <div class="penguin-top">
+            <div class="right-cheek"></div>
+            <div class="left-cheek"></div>
+            <div class="belly"></div>
+            <div class="right-eye">
+                <div class="sparkle"></div>
+            </div>
+            <div class="left-eye">
+                <div class="sparkle"></div>
+            </div>
+        <div class="blush-right"></div>
+        <div class="blush-left"></div>
+        <div class="beak-top"></div>
+        <div class="beak-bottom"></div>
+        </div>
     </div>
+
+        <!-- @media only screen and (max-width: 480px){
+            :root{
+            background-color: green;
+            --penguin-size: 600px;
+            --penguin-skin: rgb(48, 48, 48);
+            }
+        }-->
 </body>
 </html>
